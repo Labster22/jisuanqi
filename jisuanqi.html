@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <style>
+    *{
+        user-select: none;
+    }
+    #jsq{
+        width: 280px;
+        height: 450px;
+        background:#f4f1f4;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        margin: 120px auto;
+    }
+    #kong{
+        width: 100%;
+        height: 50px;
+        /*background:#f4f1f4;*/
+    }
+    #shuru{
+        width: 100%;
+        height: 50px;
+        /*background:#f4f1f4;*/
+    }
+    #shuru input{
+        width: 98%;
+        height: 50px;
+        background: #f4f1f4;
+        border: 1px solid #f4f1f4;
+        text-align: right;
+        font-size: 30px;
+        color: #68a8b8;
+    }
+    #anniu{
+        width: 100%;
+        height: 330px;
+        background:#f4f1f4;
+        float: left;
+    }
+
+    #anniu li{
+        list-style-type: none;
+        float: left;
+    }
+    #anniu .an1{
+        width: 50px;
+        height: 50px;
+        background:white;
+        margin: 5px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        text-align: center;
+        line-height: 50px;
+        color: #68a8b8;
+        font-size: 22px;
+    }
+    #anniu .an2{
+        width: 110px;
+        height: 50px;
+        background: aquamarine;
+        margin: 5px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        text-align: center;
+        line-height: 50px;
+        color: #68a8b8;
+        font-size: 22px;
+    }
+    #anniu .an3{
+        width: 50px;
+        height: 50px;
+        background: aquamarine;
+        margin: 5px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        text-align: center;
+        line-height: 50px;
+        color: #68a8b8;
+        font-size: 22px;
+    }
+    #anniu .zong{
+        position: relative;
+        right: 21px;
+    }
+    body{
+        background: aquamarine;
+    }
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <div id="jsq">
+    <div id="kong"></div>
+    <div id="shuru">
+        <input type="text" id="shu">
+    </div>
+    <div id="anniu">
+        <ul class="zong">
+            <li class="an1" onclick="qingkong()">c</li>
+            <li class="an1" onclick="zfh()">z</li>
+            <li class="an1" onclick="tui()">y</li>
+            <li class="an3" onclick="anshu('/')">÷</li>
+            <li class="an1" onclick="anshu('7')">7</li>
+            <li class="an1" onclick="anshu('8')">8</li>
+            <li class="an1" onclick="anshu('9')">9</li>
+            <li class="an3" onclick="anshu('*')">×</li>
+            <li class="an1" onclick="anshu('4')">4</li>
+            <li class="an1" onclick="anshu('5')">5</li>
+            <li class="an1" onclick="anshu('6')">6</li>
+            <li class="an3" onclick="anshu('-')">-</li>
+            <li class="an1" onclick="anshu('1')">1</li>
+            <li class="an1" onclick="anshu('2')">2</li>
+            <li class="an1" onclick="anshu('3')">3</li>
+            <li class="an3" onclick="anshu('+')">+</li>
+            <li class="an1" onclick="anshu('0')">0</li>
+            <li class="an1" onclick="anshu('.')">.</li>
+            <li class="an2" onclick="dengyu()">=</li>
+            
+            
+        </ul>
+    </div>
+
+
+    </div>
+
+    <script>
+        function anshu(shuzi){
+            var shuchu = document.getElementById('shu').value;
+                document.getElementById('shu').value += shuzi;
+
+        }
+
+        function  dengyu() {
+            var shuchu = document.getElementById('shu').value;
+            var jieguo = eval(shuchu)
+                document.getElementById('shu').value = jieguo;
+
+        }
+        function qingkong() {
+            var shuchu = document.getElementById('shu').value;
+            document.getElementById('shu').value = '';
+
+        }
+        function tui() {
+            var tg = document.getElementById('shu');
+            tg.value=tg.value.substring(0,tg.value.length-1);
+
+        }
+        function zfh() {
+            var zfh = document.getElementById('shu').value;
+            if(zfh.charCodeAt(0) == 45){
+                document.getElementById('shu').value = zfh.substr(1,zfh.length);
+            }
+            else{
+                document.getElementById('shu').value = '-' + zfh;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
